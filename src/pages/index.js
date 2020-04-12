@@ -12,7 +12,7 @@ class BlogIndex extends React.Component {
   render() {
     const siteTitle = get(
       this,
-      'props.data.cosmicjsSettings.metadata.site_title'
+      'props.data.cosmicjsSettings.metadata.site_title',
     )
     const posts = get(this, 'props.data.allCosmicjsPosts.edges')
     const author = get(this, 'props.data.cosmicjsSettings.metadata')
@@ -22,14 +22,19 @@ class BlogIndex extends React.Component {
       <Layout location={location}>
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162860125-1"></script>
         <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date());
-
-          gtag('config', 'UA-162860125-1');
+          window.addEventListener("beforeunload", function(e){
+            var dataLayer = window.dataLayer = window.dataLayer || [];
+            dataLayer.push ({
+              'event' : 'beforeunload',
+              'timeOnPage' : new Date().getTime() - {{Page Load Start Time}}
+            });
+            function gtag(){dataLayer.push(arguments)}
+            gtag('js', new Date());
+            gtag('config', 'UA-162860125-1');
+          });
         </script>
-        <Helmet title={siteTitle} />
-        <Bio settings={author} />
+        <Helmet title={siteTitle}/>
+        <Bio settings={author}/>
         {posts.map(({ node }) => {
           const title = get(node, 'title') || node.slug
           return (
