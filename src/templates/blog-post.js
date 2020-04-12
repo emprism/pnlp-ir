@@ -47,7 +47,7 @@ class BlogPostTemplate extends React.Component {
             marginTop: rhythm(1.4),
           }}
         >
-          <Link to="/">← Back to Posts</Link>
+          <Link to="/">← خانه</Link>
         </div>
         <h1
           style={{
@@ -84,7 +84,7 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
           }}
         />
-        <Bio settings={author} />
+        {/*<Bio settings={author} />*/}
 
         <ul
           style={{
