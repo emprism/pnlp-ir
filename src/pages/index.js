@@ -20,19 +20,19 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={location}>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162860125-1"></script>
-        <script>
-          window.addEventListener("beforeunload", function(e){
-          var dataLayer = window.dataLayer = window.dataLayer || [];
-          dataLayer.push ({
-          'event' : 'beforeunload',
-          'timeOnPage' : new Date().getTime() - {{Page Load Start Time}},
-          'js': new Date(),
-          'config': 'UA-162860125-1'
-        });
-          function gtag(){dataLayer.push(arguments)}
-        });
-        </script>
+        {/*<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162860125-1"></script>*/}
+        {/*<script>*/}
+        {/*  window.addEventListener("beforeunload", function(e){*/}
+        {/*  var dataLayer = window.dataLayer = window.dataLayer || [];*/}
+        {/*  dataLayer.push ({*/}
+        {/*  'event' : 'beforeunload',*/}
+        {/*  'timeOnPage' : new Date().getTime() - {{Page Load Start Time}},*/}
+        {/*  'js': new Date(),*/}
+        {/*  'config': 'UA-162860125-1'*/}
+        {/*});*/}
+        {/*  function gtag(){dataLayer.push(arguments)}*/}
+        {/*});*/}
+        {/*</script>*/}
         <Helmet title={siteTitle}/>
         <Bio settings={author}/>
         {posts.map(({ node }) => {
